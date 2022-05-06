@@ -28,3 +28,11 @@ create table usluga(
     obrve varchar(50)
 );
 
+create table korisnik(
+    ime varchar(50),
+    prezime varchar(50),
+    usluga varchar(50),
+    email varchar(50)
+);
+
+
