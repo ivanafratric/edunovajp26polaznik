@@ -1,4 +1,6 @@
-# C:\xampp\mysql\bin\mysql -uroot < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\3tablica.sql
+# C:\xampp\mysql\bin\mysql -uroot < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\6tablica.sql1
+
+
 
 drop database if exists 3tablica;
 create database 3tablica;
