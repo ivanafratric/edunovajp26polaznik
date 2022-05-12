@@ -5,25 +5,25 @@ create database samostan;
 use samostan;
 
 create table samostan(
-    ime varchar(50),
+    sifra int not null primary key auto_increment,
+    ime varchar(50) not null,
     red varchar(50),
     lokacija varchar(50),
-    svecenik varchar(50)
-    nadredenisvecenik varchar(50)
+    svecenik int not null,
+    nadredenisvecenik int not null
 );
 
 create table svecenik(
-    ime varchar(50),
-    prezime varchar(50),
-    oib varchar(50),
-    zaduzenje varchar(50),
-    nadredenisvecenik varchar(50)
+    sifra int not null primary key auto_increment,
+    ime varchar(20) not null,
+    prezime varchar(20) not null,
+    oib char(11) not null,
+    zaduzenje varchar(50) not null,
+    nadredenisvecenik int not null
 );
 
-create table nadredenisvecenik(
-    ime varchar(50),
-    prezime varchar(50),
-    oib varchar(50),
-    svecenik varchar(50)
-);
+alter table samostan add foreign key (svecenik) references svecenik(sifra);
+
+alter table svecenik add foreign key (nadredenisvecenik) references svecenik(sifra);
+
 
