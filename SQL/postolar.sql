@@ -1,8 +1,8 @@
-# C:\xampp\mysql\bin\mysql -uroot < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\8tablica.sql
+# C:\xampp\mysql\bin\mysql -uroot < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\postolar.sql
 
-drop database if exists 8tablica;
-create database 8tablica;
-use 8tablica;
+drop database if exists postolar;
+create database postolar;
+use postolar;
 
 create table postolar(
     naziv varchar(50),
