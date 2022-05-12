@@ -1,8 +1,8 @@
-# C:\xampp\mysql\bin\mysql -uroot < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\9tablica.sql
+# C:\xampp\mysql\bin\mysql -uroot < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\urar.sql
 
-drop database if exists 9tablica;
-create database 9tablica;
-use 9tablica;
+drop database if exists urar;
+create database urar;
+use urar;
 
 create table urar(
     naziv varchar(50),
