@@ -1,8 +1,8 @@
-# C:\xampp\mysql\bin\mysql -uroot < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\7tablica.sql
+# C:\xampp\mysql\bin\mysql -uroot < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\taksisluzba.sql
 
-drop database if exists 7tablica;
-create database 7tablica;
-use 7tablica;
+drop database if exists taksisluzba;
+create database taksisluzba;
+use taksisluzba;
 
 create table taksisluzba(
     ime varchar(50),
