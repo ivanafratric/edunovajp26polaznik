@@ -18,8 +18,8 @@ create table izlozba(
     sifra int not null primary key auto_increment,
     ime varchar(50) not null,
     slikar varchar(50) not null,
-    kustos varchar(50),
-    sponzor varchar(50),
+    kustos int not null,
+    sponzor int not null,
     datumizlozbe datetime not null,
     nazivslike varchar(50) not null,
     godinaslike varchar(50)
@@ -30,9 +30,18 @@ create table kustos(
     ime varchar(20) not null,
     prezime varchar(20) not null,
     oib char(11) not null,
-    izlozba int not null,
     kontakt varchar(20) not null
 );
 
+create table sponzor(
+    sifra int not null primary key auto_increment,
+    ime varchar(50) not null,
+    iznosdonacije decimal(18,2)
+);
 
+alter table muzej add foreign key (izlozba) references izlozba(sifra);
+alter table muzej add foreign key (kustos) references kustos(sifra);
+
+alter table izlozba add foreign key (kustos) references kustos(sifra);
+alter table izlozba add foreign key (sponzor) references sponzor(sifra);
 
