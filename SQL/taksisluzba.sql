@@ -5,26 +5,41 @@ create database taksisluzba;
 use taksisluzba;
 
 create table taksisluzba(
-    ime varchar(50),
-    cijena varchar(50),
-    vozac varchar(50),
-    vozilo varchar(50),
-    kontakt varchar(50)
+    sifra int not null primary key auto_increment,
+    ime varchar(50) not null,
+    cijena decimal(18,2) not null,
+    vozac int not null,
+    vozilo int not null,
+    kontakt varchar(50) not null
 );
 
 create table vozac(
-    ime varchar(50),
-    prezime varchar(50),
-    oib varchar(50),
-    vozilo varchar(50),
-    putnik varchar(50),
-    kontakt varchar(50)
+    sifra int not null primary key auto_increment,
+    ime varchar(20) not null,
+    prezime varchar(20) not null,
+    oib char(11) not null,
+    vozilo int not null,
+    putnik int not null,
+    kontakt varchar(50) not null
 );
 
 create table vozilo (
+    sifra int not null primary key auto_increment,
     marka varchar(50),
-    registracija varchar(50),
-    kilometraza varchar(50),
-    vozac varchar(50)
+    registracija varchar(10) not null,
+    kilometraza int
 );
 
+create table putnik(
+    sifra int not null primary key auto_increment,
+    ime varchar(20) not null,
+    prezime varchar(20) not null,
+    oib char(11)
+);
+
+
+alter table taksisluzba add foreign key (vozac) references vozac(sifra);
+alter table taksisluzba add foreign key (vozilo) references vozilo(sifra);
+
+alter table vozac add foreign key (putnik) references putnik(sifra);
+alter table vozac add foreign key (vozilo) references vozilo(sifra);
