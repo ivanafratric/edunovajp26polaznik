@@ -1,8 +1,8 @@
-# C:\xampp\mysql\bin\mysql -uroot < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\10tablica.sql
+# C:\xampp\mysql\bin\mysql -uroot < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\doktorskaordinacija.sql
 
-drop database if exists 10tablica;
-create database 10tablica;
-use 10tablica;
+drop database if exists doktorskaordinacija;
+create database doktorskaordinacija;
+use doktorskaordinacija;
 
 create table doktorskaordinacija(
     doktor varchar(50),
