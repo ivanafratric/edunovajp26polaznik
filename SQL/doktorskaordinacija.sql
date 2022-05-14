@@ -5,33 +5,45 @@ create database doktorskaordinacija;
 use doktorskaordinacija;
 
 create table doktorskaordinacija(
-    doktor varchar(50),
-    granamedicine varchar(50),
-    medicinskasestra varchar(50),
-    radnovrijeme varchar(50),
-    kontakt varchar(50),
+    sifra int not null primary key auto_increment,
+    doktor int not null,
+    granamedicine varchar(50) not null,
+    medicinskasestra int not null,
+    radnovrijeme varchar(50) not null,
+    kontakt varchar(50) not null,
     pauza varchar(50)
 );
 
 create table doktor(
-    ime varchar(50),
-    prezime varchar(50),
-    oib varchar(50),
-    kontakt varchar(50)
+    sifra int not null primary key auto_increment,
+    ime varchar(20) not null,
+    prezime varchar(20) not null,
+    oib char(11) not null,
+    kontakt varchar(50),
+    pacijent int not null
 );
 
 create table pacijent(
-    ime varchar(50),
-    prezime varchar(50),
-    oib varchar(50),
+    sifra int not null primary key auto_increment,
+    ime varchar(20) not null,
+    prezime varchar(20) not null,
+    oib char(11) not null,
     bolest varchar(50),
     kontakt varchar(50)
 );
 
 create table medicinskasestra(
-    ime varchar(50),
-    prezime varchar(50),
-    oib varchar(50),
-    kontakt varchar(50)
+    sifra int not null primary key auto_increment,
+    ime varchar(20) not null,
+    prezime varchar(20) not null,
+    oib char(11) not null,
+    kontakt varchar(50) not null,
+    pacijent int not null
 );
 
+
+alter table doktorskaordinacija add foreign key (doktor) references doktor(sifra);
+alter table doktorskaordinacija add foreign key (medicinskasestra) references medicinskasestra(sifra);
+
+alter table doktor add foreign key (pacijent) references pacijent(sifra);
+alter table medicinskasestra add foreign key (pacijent) references pacijent(sifra);
