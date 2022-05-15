@@ -24,7 +24,8 @@ create table djelatnik(
 
 create table usluga(
     sifra int not null primary key auto_increment,
-    vrstausluge varchar(20) not null
+    vrstausluge varchar(20) not null,
+    cijena decimal(18,2) not null
 );
 
 create table korisnik(
@@ -49,11 +50,18 @@ values ('Mirela', 'Marić', '14585967231', 'mirela.maric@gmail.com');
 insert into djelatnik (ime, prezime, oib, email)
 values ('Josipa', 'Križić', '44885967422', 'josipa.krizic@gmail.com');
 
-insert into usluga (vrstausluge)
-values ('Feniranje');
+insert into usluga (vrstausluge, cijena)
+values ('Feniranje', 50);
 
-insert into usluga (vrstausluge)
-values ('Bojanje');
+insert into usluga (vrstausluge, cijena)
+values ('Bojanje', 160);
+
+insert into korisnik (ime, prezime, usluga, djelatnik, email)
+values ('Maja', 'Rad', 1, 2, 'maja.rad@gmail.com');
+
+insert into korisnik (ime, prezime, usluga, djelatnik, email)
+values ('Jana', 'Bilić', 1, 2, 'jana.bilic@gmail.com');
+
 
 
 
