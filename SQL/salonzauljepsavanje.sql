@@ -57,4 +57,12 @@ values ('Pedikura', '120');
 insert into usluga (vrstausluge, cijena)
 values ('Manikura', '150');
 
+insert into korisnik (ime, prezime, usluga, djelatnik, kontakt)
+values ('Ana', 'Anić', 1, 1, '098/8956-123');
+
+insert into korisnik (ime, prezime, usluga, djelatnik, kontakt)
+values ('Maja', 'Rad', 2, 1, 'maja.rad@gmail.com');
+
+
+
 
