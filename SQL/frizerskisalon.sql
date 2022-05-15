@@ -1,4 +1,4 @@
-# C:\xampp\mysql\bin\mysql -uroot < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\frizerskisalon.sql
+# C:\xampp\mysql\bin\mysql -uroot --default_character_set=utf8 < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\frizerskisalon.sql
 
 drop database if exists frizerskisalon;
 create database frizerskisalon;
@@ -24,11 +24,7 @@ create table djelatnik(
 
 create table usluga(
     sifra int not null primary key auto_increment,
-    sisanje varchar(20) not null,
-    feniranje varchar(20) not null,
-    bojanje varchar(20) not null,
-    pranjekose varchar(20) not null,
-    pramenovi varchar(20) not null
+    vrstausluge varchar(20) not null
 );
 
 create table korisnik(
@@ -45,5 +41,23 @@ alter table frizerskisalon add foreign key (djelatnik) references djelatnik(sifr
 alter table korisnik add foreign key (djelatnik) references djelatnik(sifra);
 
 alter table korisnik add foreign key (usluga) references usluga(sifra);
+
+
+insert into djelatnik (ime, prezime, oib, email)
+values ('Mirela', 'Marić', '14585967231', 'mirela.maric@gmail.com');
+
+insert into djelatnik (ime, prezime, oib, email)
+values ('Josipa', 'Križić', '44885967422', 'josipa.krizic@gmail.com');
+
+insert into usluga (vrstausluge)
+values ('Feniranje');
+
+insert into usluga (vrstausluge)
+values ('Bojanje');
+
+
+
+
+
 
 
