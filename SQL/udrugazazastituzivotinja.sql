@@ -1,4 +1,4 @@
-# C:\xampp\mysql\bin\mysql -uroot < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\udrugazazastituzivotinja.sql
+# C:\xampp\mysql\bin\mysql -uroot --default_character_set=utf8 < C:\Users\38591\Documents\github\edunovajp26polaznik\SQL\udrugazazastituzivotinja.sql
 
 drop database if exists udrugazazastituzivotinja;
 create database udrugazazastituzivotinja;
@@ -26,7 +26,7 @@ create table sticenik(
     ime varchar(20),
     vrstazivotinje varchar(20),
     cipiran boolean,
-    zdravstvenostanje boolean not null
+    zdravstvenostanje varchar(50) not null
 );
 
 create table prostor(
@@ -42,4 +42,21 @@ alter table djelatnik add foreign key (sticenik) references sticenik(sifra);
 
 alter table prostor add foreign key (sticenik) references sticenik(sifra);
 
+insert into sticenik (ime, vrstazivotinje, cipiran, zdravstvenostanje)
+values ('Max', 'Pas', 1,'Zdrav');
+
+insert into sticenik (ime, vrstazivotinje, cipiran, zdravstvenostanje)
+values ('Eli', 'Mačka', 0, 'Dehidriran');
+
+insert into prostor (sticenik, velicina, ograden)
+values (1, '2x2m', 1);
+
+insert into prostor (sticenik, velicina, ograden)
+values (2, '1x1m', 1);
+
+insert into djelatnik (ime, prezime, oib, sticenik)
+values ('Marija', 'Murk', '14876325989', 1);
+
+insert into djelatnik (ime, prezime, oib, sticenik)
+values ('Ivona', 'Ivić', '77558963214', 2);
 
