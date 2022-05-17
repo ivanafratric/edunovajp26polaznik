@@ -19,8 +19,7 @@ create table doktor(
     ime varchar(20) not null,
     prezime varchar(20) not null,
     oib char(11),
-    kontakt varchar(50),
-    pacijent int not null
+    kontakt varchar(50)
 );
 
 create table pacijent(
@@ -37,16 +36,22 @@ create table medicinskasestra(
     ime varchar(20) not null,
     prezime varchar(20) not null,
     oib char(11),
-    kontakt varchar(50) not null,
-    pacijent int not null
+    kontakt varchar(50) not null
+);
+
+create table clan(
+    doktor int not null,
+    pacijent int not null,
+    medicinskasestra int not null
 );
 
 
 alter table doktorskaordinacija add foreign key (doktor) references doktor(sifra);
 alter table doktorskaordinacija add foreign key (medicinskasestra) references medicinskasestra(sifra);
 
-alter table doktor add foreign key (pacijent) references pacijent(sifra);
-alter table medicinskasestra add foreign key (pacijent) references pacijent(sifra);
+alter table clan add foreign key (doktor) references doktor(sifra);
+alter table clan add foreign key (pacijent) references pacijent(sifra);
+alter table clan add foreign key (medicinskasestra) references medicinskasestra(sifra);
 
 insert into pacijent (ime, prezime, bolest, kontakt)
 values ('Ivo', 'Ivić', 'Prehlada', '091/8878-654');
@@ -54,14 +59,20 @@ values ('Ivo', 'Ivić', 'Prehlada', '091/8878-654');
 insert into pacijent (ime, prezime, bolest, kontakt)
 values ('Ivica', 'Mikić', 'Upala krajnika', '099/6658-123'); 
 
-insert into doktor (ime, prezime, kontakt, pacijent)
-values ('Miro', 'Ćutić', 'miro.cutic@doktor.hr', 1);
+insert into doktor (ime, prezime, kontakt)
+values ('Miro', 'Ćutić', 'miro.cutic@doktor.hr');
 
-insert into doktor (ime, prezime, kontakt, pacijent)
-values ('Miro', 'Ćutić', 'miro.cutic@doktor.hr', 2);
+insert into doktor (ime, prezime, kontakt)
+values ('Miro', 'Ćutić', 'miro.cutic@doktor.hr');
 
-insert into medicinskasestra (ime, prezime, kontakt, pacijent)
-values ('Sanja', 'Radić', 'miro.cutic@doktor.hr', 1);
+insert into medicinskasestra (ime, prezime, kontakt)
+values ('Sanja', 'Radić', 'miro.cutic@doktor.hr');
 
-insert into medicinskasestra (ime, prezime, kontakt, pacijent)
-values ('Iva', 'Mihić', 'miro.cutic@doktor.hr', 2);
+insert into medicinskasestra (ime, prezime, kontakt)
+values ('Iva', 'Mihić', 'miro.cutic@doktor.hr');
+
+insert into clan (doktor, pacijent, medicinskasestra)
+values (1, 1, 1); 
+
+insert into clan (doktor, pacijent, medicinskasestra)
+values (1, 2, 2);
