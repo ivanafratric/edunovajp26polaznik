@@ -8,8 +8,7 @@ create table taksisluzba(
     sifra int not null primary key auto_increment,
     ime varchar(50) not null,
     cijena decimal(18,2) not null,
-    vozac int not null,
-    vozilo int not null,
+    adresa varchar(50),
     kontakt varchar(50) not null
 );
 
@@ -19,7 +18,6 @@ create table vozac(
     prezime varchar(20) not null,
     oib char(11) not null,
     vozilo int not null,
-    putnik int not null,
     kontakt varchar(50) not null
 );
 
@@ -37,9 +35,13 @@ create table putnik(
     oib char(11)
 );
 
+create table clan(
+    putnik int not null,
+    vozac int not null
+);
 
-alter table taksisluzba add foreign key (vozac) references vozac(sifra);
-alter table taksisluzba add foreign key (vozilo) references vozilo(sifra);
 
-alter table vozac add foreign key (putnik) references putnik(sifra);
 alter table vozac add foreign key (vozilo) references vozilo(sifra);
+
+alter table clan add foreign key (putnik) references putnik(sifra);
+alter table clan add foreign key (vozac) references vozac(sifra);
