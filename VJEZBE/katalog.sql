@@ -85,4 +85,44 @@ values (2, 'Čuvaj se senjske ruke', 3, 3);
 insert into katalog (autor, naslov, izdavac, mjesto)
 values (2, 'Zlatarevo zlato', 3,3);
 
+insert into autor (ime, prezime, datumrodenja)
+values ('Ivan', 'Kušan', '1933-08-30');
+
+insert into autor (ime, prezime, datumrodenja)
+values ('Jo', 'Nesbo', '1960-03-29');
+
+insert into autor (ime, prezime, datumrodenja)
+values ('Barry', 'Sears', '1947-06-06');
+
+insert into izdavac (naziv)
+values ('Znanje');
+
+insert into izdavac (naziv)
+values ('Aschehoug');
+
+insert into izdavac (naziv)
+values ('HarperCollins Publisher');
+
+insert into mjesto (naziv, postanskibroj, drzava)
+values ('Zagreb', '10000', 'Hrvatska');
+
+insert into mjesto (naziv, postanskibroj, drzava)
+values ('Oslo', '0031', 'Norveška');
+
+insert into mjesto (naziv, postanskibroj, drzava)
+values ('New York', '12345', 'SAD');
+
+insert into katalog (autor, naslov, izdavac, mjesto)
+values (4, 'Koko i duhovi', 6, 4);
+
+insert into katalog (autor, naslov, izdavac, mjesto)
+values (5, 'Šišmiš', 7, 5);
+
+insert into katalog (autor, naslov, izdavac, mjesto)
+values (6, 'Život u zoni', 8, 6);
+
+
+
+
+
 
