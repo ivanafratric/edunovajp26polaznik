@@ -52,3 +52,57 @@ values (null, 'Dubrovačko-neretvanska', 2);
 insert into zupanija (sifra, naziv, zupan)
 values (null, 'Koprivničko-križevačka', 3); 
 
+insert into opcina (sifra, zupanija, naziv)
+values (null, 1, 'Čeminac');
+
+insert into opcina (sifra, zupanija, naziv)
+values (null, 1, 'Antunovac');
+
+insert into opcina (sifra, zupanija, naziv)
+values (null, 2, 'Mokošica');
+
+insert into opcina (sifra, zupanija, naziv)
+values (null, 2, 'Koločep');
+
+insert into opcina (sifra, zupanija, naziv)
+values (null, 3, 'Ferdinandovac');
+
+insert into opcina (sifra, zupanija, naziv)
+values (null, 3, 'Sokolovac');
+
+insert into mjesto (sifra, opcina, naziv)
+values (null, 1, 'Čeminac');
+
+insert into mjesto (sifra, opcina, naziv)
+values (null, 1, 'Grabovac');
+
+insert into mjesto (sifra, opcina, naziv)
+values (null, 2, 'Antunovac');
+
+insert into mjesto (sifra, opcina, naziv)
+values (null, 2, 'Ivanovac');
+
+insert into mjesto (sifra, opcina, naziv)
+values (null, 3, 'Mokošica');
+
+insert into mjesto (sifra, opcina, naziv)
+values (null, 3, 'Nova Mokošica');
+
+insert into mjesto (sifra, opcina, naziv)
+values (null, 4, 'Gornje Čelo');
+
+insert into mjesto (sifra, opcina, naziv)
+values (null, 4, 'Donje Čelo');
+
+insert into mjesto (sifra, opcina, naziv)
+values (null, 5, 'Ferdinandovac');
+
+insert into mjesto (sifra, opcina, naziv)
+values (null, 5, 'Brodić');
+
+insert into mjesto (sifra, opcina, naziv)
+values (null, 6, 'Sokolovac');
+
+insert into mjesto (sifra, opcina, naziv)
+values (null, 6, 'Lepavina');
+
