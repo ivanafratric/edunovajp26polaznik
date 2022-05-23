@@ -142,3 +142,4 @@ values (null, 16, null), (null, 17, null), (null, 18, null), (null, 19, null);
 insert into clan (grupa, polaznik)
 values (1, 19), (1, 20), (2, 21), (2, 22);
 
+
