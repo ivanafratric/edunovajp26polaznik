@@ -33,3 +33,22 @@ alter table zupanija add foreign key (zupan) references zupan(sifra);
 alter table opcina add foreign key (zupanija) references zupanija(sifra);
 
 alter table mjesto add foreign key (opcina) references opcina(sifra);
+
+insert into zupan (sifra, ime ,prezime)
+values (null, 'Ivan', 'Anušić');
+
+insert into zupan (sifra, ime, prezime)
+values (null, 'Nikola', 'Dobroslavić');
+
+insert into zupan (sifra, ime, prezime)
+values (null, 'Darko', 'Koren');
+
+insert into zupanija (sifra, naziv, zupan)
+values (null, 'Osječko-baranjska', 1);
+
+insert into zupanija (sifra, naziv, zupan)
+values (null, 'Dubrovačko-neretvanska', 2);
+
+insert into zupanija (sifra, naziv, zupan)
+values (null, 'Koprivničko-križevačka', 3); 
+
