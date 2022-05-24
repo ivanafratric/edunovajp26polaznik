@@ -106,3 +106,13 @@ values (null, 6, 'Sokolovac');
 insert into mjesto (sifra, opcina, naziv)
 values (null, 6, 'Lepavina');
 
+update mjesto set naziv='Kozarac' where sifra=2;
+
+update mjesto set naziv='Kalamota' where sifra=7;
+
+update mjesto set naziv='Brodić' where sifra=9;
+
+update mjesto set naziv='Ferdinandovac' where sifra=10;
+
+update mjesto set naziv='Srijem' where sifra=12;
+
