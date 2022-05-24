@@ -89,3 +89,42 @@ alter table mladic add foreign key (muskarac) references muskarac(sifra);
 
 alter table cura add foreign key (punac) references punac(sifra);
 
+insert into sestra (introvertno, haljina, maraka, hlace, narukvica)
+values (null, 'zelena', null, 'duge', 2);
+
+insert into sestra (introvertno, haljina, maraka, hlace, narukvica)
+values (null, 'kratka', null, 'bijele', 1);
+
+insert into sestra (introvertno, haljina, maraka, hlace, narukvica)
+values (null, 'lijepa', null, 'kratke', 5);
+
+insert into zena (treciputa, hlace, kratkamajica, jmbag, bojaociju, haljina, sestra)
+values (null, null, 'bijela', '15489663257', 'plava', null, 3);
+
+insert into zena (treciputa, hlace, kratkamajica, jmbag, bojaociju, haljina, sestra)
+values (null, null, 'žuta', '25412256983', 'plava', null, 1);
+
+insert into zena (treciputa, hlace, kratkamajica, jmbag, bojaociju, haljina, sestra)
+values (null, null, 'crvena', '58987841251', 'zelena', null, 2);
+
+insert into muskarac (bojaociju, hlace, modelnaocala, maraka, zena)
+values ('smeđa', null, null, 14, 1);
+
+insert into muskarac (bojaociju, hlace, modelnaocala, maraka, zena)
+values ('smeđa', null, null, 20, 2);
+
+insert into muskarac (bojaociju, hlace, modelnaocala, maraka, zena)
+values ('plava', null, null, 15, 3);
+
+insert into svekar (bojaociju, prstena, dukserica, lipa, eura, majica)
+values ('plava', null, null, null, null, null);
+
+insert into svekar (bojaociju, prstena, dukserica, lipa, eura, majica)
+values ('smeđa', null, null, null, null, null);
+
+insert into svekar (bojaociju, prstena, dukserica, lipa, eura, majica)
+values ('zelena', null, null, null, null, null);
+
+insert into sestra_svekar (sestra, svekar)
+values (1,3), (2,2), (3,1);
+
