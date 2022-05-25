@@ -161,3 +161,24 @@ inner join osoba d
 on c.osoba=d.sifra
 where naziv='JP26';
 
+select * from polaznik where osoba=5;
+select * from osoba where ime='Ivana';
+select * from grupa;
+
+insert into clan (grupa, polaznik)
+values (2, 4);
+
+select a.naziv as grupa, b.polaznik as clan, 
+c.osoba, d.ime, d.prezime
+from grupa a inner join clan b 
+on a.sifra = b.grupa 
+inner join polaznik c 
+on b.polaznik = c.sifra 
+inner join osoba d
+on c.osoba = d.sifra
+where naziv='PP25';
+
+delete from clan where grupa=2 and polaznik=4;
+
+update polaznik set brojugovora='12/2022' where sifra=4;
+select * from polaznik;
