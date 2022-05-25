@@ -75,7 +75,7 @@ create table mladic(
     asocijalno boolean,
     ekstroventno boolean not null,
     dukserica varchar(48) not null,
-    muskarac int not null
+    muskarac int
 );
 
 alter table sestra_svekar add foreign key (sestra) references sestra(sifra);
@@ -127,4 +127,30 @@ values ('zelena', null, null, null, null, null);
 
 insert into sestra_svekar (sestra, svekar)
 values (1,3), (2,2), (3,1);
+
+insert into cura (novcica, gustoca, lipa, ogrlica, bojakose, suknja, punac)
+values (125.30, 22, null, 2, null, null, null);
+
+insert into cura (novcica, gustoca, lipa, ogrlica, bojakose, suknja, punac)
+values (325.30, 53, null, 3, null, null, null);
+
+insert into cura (novcica, gustoca, lipa, ogrlica, bojakose, suknja, punac)
+values (88.80, 88, null, 1, null, null, null);
+
+update cura set gustoca=15.77;
+
+insert into mladic (suknja, kuna, drugiputa, asocijalno, ekstroventno, dukserica, muskarac)
+values ('zelena', 158.32, null, null, true, 'bijela', null);
+
+insert into mladic (suknja, kuna, drugiputa, asocijalno, ekstroventno, dukserica, muskarac)
+values ('žuta', 225, null, null, true, 'bijela', null);
+
+insert into mladic (suknja, kuna, drugiputa, asocijalno, ekstroventno, dukserica, muskarac)
+values ('plava', 15.55, null, null, true, 'crna', null);
+
+delete from mladic where kuna >15.78;  
+
+select kratkamajica from zena where hlace like '%ana%';
+
+
 
