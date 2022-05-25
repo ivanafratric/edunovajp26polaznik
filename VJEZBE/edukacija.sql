@@ -142,4 +142,22 @@ values (null, 16, null), (null, 17, null), (null, 18, null), (null, 19, null);
 insert into clan (grupa, polaznik)
 values (1, 19), (1, 20), (2, 21), (2, 22);
 
+select a.naziv as grupa, b.naziv as smjer,
+d.ime, d.prezime
+from grupa a inner join smjer b 
+on a.smjer=b.sifra
+left join predavac c 
+on a.predavac=c.sifra 
+left join osoba d 
+on c.osoba=d.sifra;
+
+select a.naziv as grupa, b.polaznik as clan,
+c.osoba, d.ime, d.prezime 
+from grupa a inner join clan b 
+on a.sifra=b.grupa
+inner join polaznik c 
+on b.polaznik = c.sifra 
+inner join osoba d 
+on c.osoba=d.sifra
+where naziv='JP26';
 
