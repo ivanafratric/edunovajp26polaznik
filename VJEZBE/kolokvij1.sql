@@ -90,7 +90,7 @@ alter table mladic add foreign key (muskarac) references muskarac(sifra);
 alter table cura add foreign key (punac) references punac(sifra);
 
 insert into sestra (introvertno, haljina, maraka, hlace, narukvica)
-values (null, 'zelena', null, 'duge', 2);
+values (null, 'zelena', null, 'labave', 2);
 
 insert into sestra (introvertno, haljina, maraka, hlace, narukvica)
 values (null, 'kratka', null, 'bijele', 1);
@@ -102,7 +102,7 @@ insert into zena (treciputa, hlace, kratkamajica, jmbag, bojaociju, haljina, ses
 values (null, null, 'bijela', '15489663257', 'plava', null, 3);
 
 insert into zena (treciputa, hlace, kratkamajica, jmbag, bojaociju, haljina, sestra)
-values (null, null, 'žuta', '25412256983', 'plava', null, 1);
+values (null, 'Asics', 'žuta', '25412256983', 'plava', null, 1);
 
 insert into zena (treciputa, hlace, kratkamajica, jmbag, bojaociju, haljina, sestra)
 values (null, null, 'crvena', '58987841251', 'zelena', null, 2);
@@ -151,6 +151,21 @@ values ('plava', 15.55, null, null, true, 'crna', null);
 delete from mladic where kuna >15.78;  
 
 select kratkamajica from zena where hlace like '%ana%';
+
+select a.dukserica, b.asocijalno, c.hlace,
+d.hlace, e.haljina
+from svekar a inner join sestra_svekar ss 
+on a.sifra=ss.svekar
+inner join sestra e on ss.sestra = e.sifra 
+inner join zena d on e.sifra=d.sestra 
+inner join muskarac c on d.sifra=c.zena 
+inner join mladic b on c.sifra = b.muskarac 
+where d.hlace like 'a%' and e.haljina like '%ba%'
+order by c.hlace DESC;
+
+select a.haljina, a.maraka
+from sestra a inner join sestra_svekar ss 
+on a.sifra=ss.sestra where a.sifra not in (select sestra from sestra_svekar);
 
 
 
