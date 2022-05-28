@@ -127,3 +127,33 @@ values (2, 2);
 insert into prijatelj_brat (prijatelj, brat)
 values (3, 3);
 
+insert into cura (ogrlica)
+values (25);
+
+insert into svekar (novcica, suknja, narukvica, cura)
+values (16.8, 'kratka', 5, 1);
+
+insert into svekar (novcica, suknja, narukvica, cura)
+values (165.8, 'duga', 4, 1);
+
+insert into svekar (novcica, suknja, narukvica, cura)
+values (120, 'zelena', 51, 1);
+
+update svekar set suknja='Osijek';
+
+delete from punica where kratkamajica = 'AB';
+
+select majica from ostavljena where lipa not in (9, 10, 20, 30, 35);
+
+select a.ekstroventno, b.vesta, c.kuna
+from brat a inner join prijatelj_brat pb on a.sifra=pb.brat 
+inner join prijatelj d on pb.prijatelj=d.sifra 
+inner join ostavljena e on d.sifra=e.prijatelj 
+inner join snasa c on c.ostavljena=e.sifra 
+inner join punica b on b.snasa=c.sifra
+where e.lipa <> 91 and d.haljina like '%ba%'
+order by c.kuna desc;
+
+select a.haljina, a.lipa from prijatelj a 
+left join prijatelj_brat b on b.prijatelj = a.sifra 
+where b.sifra is null;
