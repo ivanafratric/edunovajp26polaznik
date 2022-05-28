@@ -1,5 +1,7 @@
 # C:\xampp\mysql\bin\mysql -uroot --default_character_set=utf8 < C:\Users\38591\Documents\github\edunovajp26polaznik\VJEZBE\kolokvij2.sql
 
+# 0. Kreirajte tablice i veze između tablica
+
 drop database if exists kolokvij2;
 create database kolokvij2;
 use kolokvij2;
@@ -83,6 +85,8 @@ alter table neprijatelj add foreign key (cura) references cura(sifra);
 
 alter table brat add foreign key (neprijatelj) references neprijatelj(sifra);
 
+# 1. U tablice neprijatelj, cura i decko_zarucnica unesite po 3 retka
+
 insert into neprijatelj (haljina, modelnaocala, kuna)
 values ('curina', 'sunčane', 252.50);
 
@@ -127,3 +131,55 @@ values (2, 2);
 
 insert into decko_zarucnica (decko, zarucnica)
 values (3, 1);
+
+# 2. U tablici prijatelj postavite svim zapisima kolonu treciputa na vrijednost 30. travnja 2020.
+
+insert into svekar (ogrlica, asocijalno)
+values (2, true);
+
+insert into prijatelj (treciputa, ekstroventno, svekar)
+values ('2019-02-15', true, 1);
+
+insert into prijatelj (treciputa, ekstroventno, svekar)
+values ('1998-05-14', true, 1);
+
+insert into prijatelj (treciputa, ekstroventno, svekar)
+values ('2012-08-28', false, 1);
+
+update prijatelj set treciputa='2020-04-30';
+
+# 3. U tablici brat obrišite sve zapise čija je vrijednost kolone ogrlica različito od 14
+
+insert into brat (ogrlica, asocijalno, neprijatelj)
+values (2, false, 1);
+
+insert into brat (ogrlica, asocijalno, neprijatelj)
+values (1, true, 2);
+
+insert into brat (ogrlica, asocijalno, neprijatelj)
+values (0, true, 3);
+
+delete from brat where ogrlica <> 14; 
+
+# 4. Izlistajte suknja iz tablice cura uz uvjet da vrijednost kolone drugiputa nepoznate
+
+select suknja from cura where drugiputa is null;
+
+# 5. Prikažite novcica iz tablice zarucnica, neprijatelj iz tablice brat te haljina iz tablice neprijatelj 
+# uz uvjet da su vrijednosti kolone drugiputa iz tablice cura poznate
+# te da su vrijednosti kolona vesta iz tablice decko sadrže niz znakova ba.
+# Podatke posložite po haljina iz tablice neprijatelj silazno
+
+select a.novcica, b.neprijatelj, c.haljina
+from zarucnica a inner join decko_zarucnica dz on a.sifra=dz.zarucnica
+inner join decko d on dz.decko=d.sifra 
+inner join cura e on d.sifra=e.decko 
+inner join neprijatelj c on c.cura=e.sifra 
+inner join brat b on b.neprijatelj = c.sifra
+where e.drugiputa is not null and d.vesta like '%ba%'
+order by c.haljina desc;
+
+# 6. Prikažite kolone vesta i asocijalno iz tablice decko čiji se primarni ključ ne nalazi u tablici decko_zarucnica 
+
+select a.vesta, a.asocijalno from decko a left join decko_zarucnica b 
+on b.decko=a.sifra where b.sifra is null;
