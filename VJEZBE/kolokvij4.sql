@@ -145,7 +145,8 @@ inner join zena d on d.sifra=zm.zena
 inner join snasa e on e.zena=d.sifra 
 inner join becar c on c.snasa=e.sifra 
 left join prijatelj b on b.becar=c.sifra
-where e.treciputa is not null and d.lipa <> 29;
+where e.treciputa is not null and d.lipa <> 29
+order by c.kratkamajica desc;
 
 select a.lipa, a.prstena from zena a
 inner join zena_mladic b on a.sifra=b.zena 
