@@ -81,4 +81,60 @@ create table svekrva(
  alter table zena add foreign key (brat) references brat(sifra);
  alter table decko add foreign key (zena) references zena(sifra);
 
+ insert into brat (nausnica, treciputa, narukvica)
+ values (8, '2021-09-05', 8);
+
+ insert into brat (nausnica, treciputa, narukvica)
+ values (2, '2020-06-06', 5);
+
+ insert into brat (nausnica, treciputa, narukvica)
+ values (1, '2008-10-12', 1);
  
+ insert into zena (novcica, narukvica, dukserica, brat)
+ values (15.2, 2, 'plava', 1);
+
+ insert into zena (novcica, narukvica, dukserica, brat)
+ values (22.22, 8, 'zelena', 2);
+
+ insert into zena (novcica, narukvica, dukserica, brat)
+ values (215.2, 4, 'bijela', 1);
+
+ insert into prijatelj (prstena, stilfrizura)
+ values (4, 'kratko ošišana');
+
+ insert into prijatelj (prstena, stilfrizura)
+ values (77, 'jež frizura');
+
+ insert into prijatelj (prstena, stilfrizura)
+ values (18, 'duga kosa');
+
+ insert into ostavljena (prviputa, kratkamajica)
+ values ('2000-01-20', 'kratkih rukava');
+
+ insert into ostavljena (prviputa, kratkamajica)
+ values ('2002-12-10', 'plava');
+
+ insert into ostavljena (prviputa, kratkamajica)
+ values ('2005-03-12', 'žuta');
+
+ insert into prijatelj_ostavljena (prijatelj, ostavljena)
+ values (1,1), (2,2), (1,3);
+
+ update svekrva set suknja ='Osijek';
+
+delete from decko where modelnaocala < 'AB';
+
+select narukvica from brat where treciputa is null;
+
+select a.drugiputa, b.zena, c.narukvica
+from ostavljena a inner join prijatelj_ostavljena po on a.sifra=po.ostavljena 
+inner join prijatelj d on d.sifra=po.prijatelj 
+inner join brat e on e.prijatelj=d.sifra 
+inner join zena c on c.brat=e.sifra 
+left join decko b on b.zena=c.sifra
+where e.treciputa is not null and d.prstena = 219
+order by c.narukvica desc;
+
+select a.prstena, a.introvertno
+from prijatelj a left join prijatelj_ostavljena b on a.sifra=b.prijatelj 
+where b.sifra is null;
