@@ -80,4 +80,60 @@ create table svekar(
     alter table punica add foreign key (punac) references punac(sifra);
     alter table punac add foreign key (svekar) references svekar(sifra);
 
+    insert into svekar (carape, eura)
+    values ('crne', 5.8);
+
+    insert into svekar (carape, eura)
+    values ('sive', 10.50);
+
+    insert into svekar (carape, eura)
+    values ('plave', 8);
     
+    insert into punac (prviputa, svekar)
+    values ('1998-02-15', 3);
+
+    insert into punac (prviputa, svekar)
+    values ('1975-03-16', 1);
+
+    insert into punac (prviputa, svekar)
+    values ('2002-08-26', 2);
+    
+    insert into punica (hlace, nausnica, vesta, modelnaocala, treciputa, punac)
+    values ('bijele', 2, 'prugasta', 'mačkaste', '2022-02-14', 1);
+
+    insert into punica (hlace, nausnica, vesta, modelnaocala, treciputa, punac)
+    values ('crne', 6, 'lagana', 'okrugle', '2020-04-24', 2);
+
+    insert into punica (hlace, nausnica, vesta, modelnaocala, treciputa, punac)
+    values ('plave', 1, 'bijela', 'dioptrijske', '1999-07-31', 3);
+
+    insert into cura (carape, maraka, vesta)
+    values ('bijele', 14.4, 'zelena');
+
+    insert into cura (carape, maraka, vesta)
+    values ('crne', 5.9, 'plava');
+
+    insert into cura (carape, maraka, vesta)
+    values ('sive', 20, 'bijela');
+
+    insert into svekar_cura (svekar, cura)
+    values (1,1), (2,2), (3,3);
+
+    update mladic set haljina='Osijek';
+
+    delete from ostavljena where ogrlica=17;
+
+    select majica from punac where prviputa is null;
+
+    select a.asocijalno, b.stilfrizura, c.nausnica
+    from cura a inner join svekar_cura sc on a.sifra=sc.cura 
+    inner join svekar d on sc.svekar=d.sifra 
+    inner join punac e on e.svekar=d.sifra 
+    inner join punica c on c.punac=e.sifra 
+    left join ostavljena b on b.punica=c.sifra
+    where e.prviputa is not null and d.majica like '%ba%'
+    order by c.nausnica desc;
+
+    select a.majica, a.carape from svekar a 
+    inner join svekar_cura b on b.svekar=a.sifra
+    where b.sifra is null;
