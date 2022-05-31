@@ -47,3 +47,27 @@ from autor a inner join katalog b on a.sifra=b.autor
 inner join izdavac c on b.izdavac=c.sifra 
 inner join mjesto d on b.mjesto=d.sifra
 where a.datumrodenja between '1976-01-01' and '1977-01-01' and c.aktivan=1;
+
+select a.naslov, b.naziv
+from katalog a inner join mjesto b on a.mjesto=b.sifra 
+where a.naslov like '%ljub%';
+
+select * from katalog where naslov like '%ljub%';
+
+select * from izdavac where naziv like '%d%o%o%';
+
+select * from autor;
+
+insert into autor (sifra, ime, prezime)
+values (4, 'Ivana', 'Fratrić');
+
+insert into katalog (sifra, autor, naslov, izdavac, mjesto)
+values (10, 4, 'Koko i duhovi', 3, 4);
+
+select * from katalog;
+select * from izdavac;
+select * from mjesto;
+
+update autor set datumrodenja = '2022-05-31' where sifra=4;
+
+alter table katalog add column cijena decimal(18,2);
