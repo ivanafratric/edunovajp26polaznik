@@ -41,6 +41,12 @@ create table prijateljica(
     kratkamajica varchar(49)
 );
 
+create table punac_prijateljica(
+    sifra int not null primary key auto_increment,
+    punac int not null,
+    prijateljica int not null
+);
+
 create table cura(
     sifra int not null primary key auto_increment,
     vesta varchar(49) not null,
@@ -66,4 +72,13 @@ create table zarucnik(
     nausnica int not null,
     brat int not null
 );
+
+alter table snasa add foreign key (ostavljena) references ostavljena(sifra);
+
+alter table punac_prijateljica add foreign key (punac) references punac(sifra);
+alter table punac_prijateljica add foreign key (prijateljica) references prijateljica(sifra);
+
+alter table cura add foreign key (punac) references punac(sifra);
+alter table brat add foreign key (cura) references cura(sifra);
+alter table zarucnik add foreign key (brat) references brat(sifra);
 
