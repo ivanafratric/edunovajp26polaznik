@@ -82,3 +82,60 @@ alter table cura add foreign key (punac) references punac(sifra);
 alter table brat add foreign key (cura) references cura(sifra);
 alter table zarucnik add foreign key (brat) references brat(sifra);
 
+insert into brat (novcica, vesta)
+values (250, 'zelena');
+
+insert into brat (novcica, vesta)
+values (150, 'plava');
+
+insert into brat (novcica, vesta)
+values (26, 'bijela');
+
+insert into punac (narukvica)
+values (5);
+
+insert into punac (narukvica)
+values (2);
+
+insert into punac (narukvica)
+values (22);
+
+insert into cura (vesta, suknja, punac)
+values ('šarena', 'bijela', 1);
+
+insert into cura (vesta, suknja, punac)
+values ('bijela', 'zelena', 1);
+
+insert into cura (vesta, suknja, punac)
+values ('crna', 'bijela', 2);
+
+insert into prijateljica (kuna)
+values (252);
+
+insert into prijateljica (kuna)
+values (126.56);
+
+insert into prijateljica (kuna)
+values (5.15);
+
+insert into punac_prijateljica (punac, prijateljica)
+values (1,1), (2,2), (3,3);
+
+update snasa set drugiputa = '2020-04-24';
+
+delete from zarucnik where haljina = 'AB';
+
+select carape from cura where ekstroventno is null;
+
+select a.kuna, f.nausnica, e.ekstroventno 
+from prijateljica a inner join punac_prijateljica pp on a.sifra = pp.prijateljica 
+inner join punac c on pp.punac = c.sifra 
+inner join cura d on c.sifra = d.punac 
+inner join brat e on d.sifra = e.cura 
+inner join zarucnik f on e.sifra = f.brat
+where d.ekstroventno is not null and c.modelnaocala like '%ba%'
+order by e.ekstroventno desc;
+
+select a.modelnaocala, a.kuna from punac a 
+inner join punac_prijateljica b on a.sifra = b.punac 
+where b.sifra is null;
